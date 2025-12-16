@@ -87,7 +87,7 @@ set ExecutionPath {
 }
 
 #################################
-# Truth Vertex Finder
+# Truth Vertex Finder- look at gen level particles
 #################################
 
 module TruthVertexFinder TruthVertexFinder {
@@ -101,7 +101,7 @@ module TruthVertexFinder TruthVertexFinder {
 
 
 #################################
-# Propagate particles in cylinder
+# Propagate particles in cylinder - computes helix trajectories of charged particles
 #################################
 
 module ParticlePropagator ParticlePropagator {
@@ -123,7 +123,7 @@ module ParticlePropagator ParticlePropagator {
 }
 
 ####################################
-# Charged hadron tracking efficiency
+# Charged hadron tracking efficiency- according to eta- outside tracker/inside tracker and pT
 ####################################
 
 module Efficiency ChargedHadronTrackingEfficiency {
@@ -174,7 +174,7 @@ module Efficiency MuonTrackingEfficiency {
 }
 
 ##############
-# Track merger
+# Track merger- uses everything above to make tracks
 ##############
 
 module Merger TrackMergerPre {
@@ -374,7 +374,7 @@ module TrackCovariance TrackSmearing {
 }
 
 ###################
-# Cluster Counting
+# Cluster Counting- gives dE/dx information
 ###################
 
 module ClusterCounting ClusterCounting {
@@ -402,7 +402,7 @@ module ClusterCounting ClusterCounting {
 
 
 ########################################
-#   Time Smearing MIP
+#   Time Smearing MIP - just a detector uncertainity right
 ########################################
 
 module TimeSmearing TimeSmearing {
@@ -445,7 +445,7 @@ module Merger TrackMerger {
 
 
 ######################
-# Looper Selection
+# Looper Selection - forward region tracks
 ######################
 
 module Efficiency ForwardLooperTracks  {
@@ -552,7 +552,7 @@ module DualReadoutCalorimeter Calorimeter {
 }
 
 ########################################
-#   Time Smearing Neutrals
+#   Time Smearing Neutrals - now in calo
 ########################################
 
 module TimeSmearing TimeSmearingNeutrals {
@@ -782,6 +782,8 @@ module PdgCodeFilter NeutrinoFilter {
   add PdgCode {-12}
   add PdgCode {-14}
   add PdgCode {-16}
+  add PdgCode {1000049}
+  add PdgCode {-1000049}
 }
 
 ###################################
@@ -822,7 +824,7 @@ module FastJetFinder FastJetFinderDurhamN2 {
   # if DCut > 0 will run in dcut mode
 
   set JetAlgorithm 11
-  set ExclusiveClustering true
+  set ExclusiveClustering false
   set NJets 2
   # set DCut 10.0
 
