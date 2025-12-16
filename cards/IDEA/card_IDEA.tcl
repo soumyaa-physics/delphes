@@ -546,6 +546,7 @@ module DualReadoutCalorimeter Calorimeter {
     add EnergyFraction {1000025} {0.0 0.0}
     add EnergyFraction {1000035} {0.0 0.0}
     add EnergyFraction {1000045} {0.0 0.0}
+    add EnergyFraction {1000049} {0.0 0.0}
     # energy fractions for K0short and Lambda
     add EnergyFraction {310} {0.3 0.7}
     add EnergyFraction {130} {0.3 0.7}
@@ -799,6 +800,8 @@ module PdgCodeFilter NeutrinoFilter {
   add PdgCode {-12}
   add PdgCode {-14}
   add PdgCode {-16}
+  add PdgCode {1000049}
+
 }
 
 ###################################
@@ -817,7 +820,7 @@ module FastJetFinder GenJetFinderDurhamN2 {
   # if DCut > 0 will run in dcut mode
 
   set JetAlgorithm 11
-  set ExclusiveClustering true
+  set ExclusiveClustering false
   set NJets 2
   # set DCut 10.0
 }
@@ -839,7 +842,7 @@ module FastJetFinder FastJetFinderDurhamN2 {
   # if DCut > 0 will run in dcut mode
 
   set JetAlgorithm 11
-  set ExclusiveClustering true
+  set ExclusiveClustering false
   set NJets 2
   # set DCut 10.0
 

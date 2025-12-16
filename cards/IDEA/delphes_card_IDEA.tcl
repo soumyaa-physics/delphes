@@ -100,7 +100,7 @@ module TruthVertexFinder TruthVertexFinder {
 }
 
 ###########################################
-# Propagate unstable particles in cylinder - added from the alps directory
+# Propagate unstable particles in cylinder
 ###########################################
 
 module UnstablePropagator UnstablePropagator {
@@ -984,18 +984,6 @@ module TauTagging TauTagging {
   # efficiency formula for tau-jets
   add EfficiencyFormula {15} {0.85}
 }
-
-module EDM4HepOutput EDM4HepOutput {
-    add ReconstructedParticleCollections EFlowTrack EFlowPhoton EFlowNeutralHadron
-    add GenParticleCollections           Particle
-    add JetCollections                   Jet
-    add MuonCollections                  Muon
-    add ElectronCollections              Electron
-    add PhotonCollections                Photon
-    set RecoParticleCollectionName       ReconstructedParticles
-    set MCRecoAssociationCollectionName  MCRecoAssociations
-}
-
 
 ##################
 # ROOT tree writer
