@@ -1,5 +1,5 @@
 The cards present in the IDEA folder have been taken from the FCC-config from winter 2023 branch:
-https://github.com/HEP-FCC/FCC-config/blob/winter2023/FCCee/Delphes/card_IDEA.tcl
+[Delphes_FCCee_IDEA_card](https://github.com/HEP-FCC/FCC-config/blob/winter2023/FCCee/Delphes/card_IDEA.tcl)
 
 The main difference between cards is:
 ## Detector Cards Overview
@@ -24,7 +24,6 @@ To use key4hep do this everytime in k4SimDelphes:
 ```
 source /cvmfs/sw-nightlies.hsf.org/key4hep/setup.sh
 cd install
-cd ../install
 export PATH=$(pwd)/bin:${PATH}
 export LD_LIBRARY_PATH=$(pwd)/lib64:${LD_LIBRARY_PATH}
 ```
