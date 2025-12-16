@@ -18,13 +18,23 @@ The main changes I made to the default idea card- card_IDEA.tcl is:
 3. Added gravitinos in DualReadoutCalorimeter block 
     add EnergyFraction {1000049} {0.0 0.0}
 
-Ran the following code to combine delphes output with EDM4HEP:
 
-k4SimDelphes -i MG5_aMC_v3_6_6/FCC_100stau_240com/Events/run_03/tag_1_pythia8_events.hepmc -o FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output.root  -c delphes/cards/IDEA/card_IDEA.tcl -O delphes/cards/IDEA/edm4hep_IDEA.tcl
 
+To use key4hep do this everytime in k4SimDelphes:
+```
+source /cvmfs/sw-nightlies.hsf.org/key4hep/setup.sh
+cd install
+cd ../install
+export PATH=$(pwd)/bin:${PATH}
+export LD_LIBRARY_PATH=$(pwd)/lib64:${LD_LIBRARY_PATH}
+```
+
+Run the following code to combine delphes output with EDM4HEP:
+```
 DelphesHepMC_EDM4HEP  /eos/home-s/svashish/delphes/cards/IDEA/card_IDEA.tcl \
                       /eos/home-s/svashish/delphes/cards/IDEA/edm4hep_IDEA.tcl \
                       /eos/home-s/svashish/FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output/edm4hep_output.root \
                       /eos/home-s/svashish/MG5_aMC_v3_6_6/FCC_100stau_240com/Events/run_03/tag_1_pythia8_events.hepmc 
+```
 
-This script is placed in : k4SimDelphes/standalone/src/DelphesHepMC_EDM4HEP.cpp
+This script is placed in : ` k4SimDelphes/standalone/src/DelphesHepMC_EDM4HEP.cpp `
