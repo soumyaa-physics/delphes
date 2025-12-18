@@ -1,5 +1,5 @@
 The cards present in the IDEA folder have been taken from the FCC-config from winter 2023 branch:
-[Delphes_FCCee_IDEA_card](https://github.com/HEP-FCC/FCC-config/blob/winter2023/FCCee/Delphes/card_IDEA.tcl)
+[Delphes_FCCee_IDEA_card](https://github.com/HEP-FCC/FCC-config/blob/spring2021/FCCee/Delphes/card_IDEA.tcl)
 
 The main difference between cards is:
 ## Detector Cards Overview
@@ -32,7 +32,7 @@ Run the following code to combine delphes output with EDM4HEP:
 ```
 DelphesHepMC_EDM4HEP  /eos/home-s/svashish/delphes/cards/IDEA/card_IDEA.tcl \
                       /eos/home-s/svashish/delphes/cards/IDEA/edm4hep_IDEA.tcl \
-                      /eos/home-s/svashish/FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output/edm4hep_output.root \
+                      /eos/home-s/svashish/FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output/FCC_100stau_240COM.root \
                       /eos/home-s/svashish/MG5_aMC_v3_6_6/FCC_100stau_240com/Events/run_03/tag_1_pythia8_events.hepmc 
 ```
 

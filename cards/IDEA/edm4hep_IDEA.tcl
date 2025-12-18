@@ -1,4 +1,3 @@
-
 module EDM4HepOutput EDM4HepOutput {   
     add ReconstructedParticleCollections EFlowTrack EFlowPhoton EFlowNeutralHadron
     add GenParticleCollections           Particle
@@ -6,7 +5,8 @@ module EDM4HepOutput EDM4HepOutput {
     add MuonCollections                  Muon 
     add ElectronCollections              Electron
     add PhotonCollections                Photon
+    add MissingETCollections             MissingET
+    add ScalarHTCollections              ScalarHT
     set RecoParticleCollectionName       ReconstructedParticles
     set MCRecoAssociationCollectionName  MCRecoAssociations
 } 
-
