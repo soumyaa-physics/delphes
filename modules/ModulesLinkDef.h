@@ -32,6 +32,7 @@
 #include "modules/ParticlePropagator.h"
 #include "modules/UnstablePropagator.h"
 #include "modules/Efficiency.h"
+#include "modules/MetaStableCharged.h"
 #include "modules/IdentificationMap.h"
 #include "modules/EnergySmearing.h"
 #include "modules/MomentumSmearing.h"
@@ -96,6 +97,7 @@
 #pragma link C++ class ParticlePropagator+;
 #pragma link C++ class UnstablePropagator+;
 #pragma link C++ class Efficiency+;
+#pragma link C++ class MetaStableCharged+;
 #pragma link C++ class IdentificationMap+;
 #pragma link C++ class EnergySmearing+;
 #pragma link C++ class MomentumSmearing+;

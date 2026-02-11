@@ -30,7 +30,11 @@ set DCHRMAX 2.02
 set ExecutionPath {
 
   TruthVertexFinder
+  UnstablePropagator
+  MetaStableCharged
+  ParticleMergerPreTracking
   ParticlePropagator
+
 
   ChargedHadronTrackingEfficiency
   ElectronTrackingEfficiency
@@ -120,15 +124,36 @@ module UnstablePropagator UnstablePropagator {
   set Bz $B
 }
 
+###################################
+# Collect metastable charged particles 
+###################################
 
+module MetaStableCharged MetaStableCharged {
+  set InputArray Delphes/allParticles
+  set OutputArray metaStableCharged
+
+  # minimal travel distance, in meters
+  set MinTravel 0.5
+
+}
+
+##############
+# Merge stable and metastable 
+##############
+
+module Merger ParticleMergerPreTracking {
+  add InputArray Delphes/stableParticles
+  add InputArray MetaStableCharged/metaStableCharged
+  set OutputArray stablishParticles
+}
 
 #################################
 # Propagate particles in cylinder
 #################################
 
 module ParticlePropagator ParticlePropagator {
-  set InputArray Delphes/stableParticles
 
+  set InputArray ParticleMergerPreTracking/stablishParticles
   set OutputArray stableParticles
   set ChargedHadronOutputArray chargedHadrons
   set ElectronOutputArray electrons
