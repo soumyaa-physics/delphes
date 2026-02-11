@@ -434,15 +434,7 @@ void DelphesHepMC2Reader::AnalyzeParticle(DelphesFactory *factory,
   {
     partonOutputArray->Add(candidate);
   }
-  // for charged LLP
-  else if(pdgCode == 1000015) // stau
-  {
-      candidate->Status = 1;      
-      stableParticleOutputArray->Add(candidate);
-      // cout << "stau is treated as a stable particle" << endl;
-      // cout << "PID: " << pdgCode << ", status: " << candidate->Status << endl;
-
-  }
+ 
 
 }
 

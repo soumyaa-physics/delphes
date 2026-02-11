@@ -369,6 +369,7 @@ tmp/modules/ModulesDict.$(SrcSuf): \
 	modules/ParticlePropagator.h \
 	modules/UnstablePropagator.h \
 	modules/Efficiency.h \
+	modules/MetaStableCharged.h \
 	modules/IdentificationMap.h \
 	modules/EnergySmearing.h \
 	modules/MomentumSmearing.h \
@@ -758,6 +759,14 @@ tmp/modules/Efficiency.$(ObjSuf): \
 	classes/DelphesClasses.h \
 	classes/DelphesFactory.h \
 	classes/DelphesFormula.h \
+	external/ExRootAnalysis/ExRootClassifier.h \
+	external/ExRootAnalysis/ExRootFilter.h \
+	external/ExRootAnalysis/ExRootResult.h
+tmp/modules/MetaStableCharged.$(ObjSuf): \
+	modules/MetaStableCharged.$(SrcSuf) \
+	modules/MetaStableCharged.h \
+	classes/DelphesClasses.h \
+	classes/DelphesFactory.h \
 	external/ExRootAnalysis/ExRootClassifier.h \
 	external/ExRootAnalysis/ExRootFilter.h \
 	external/ExRootAnalysis/ExRootResult.h
@@ -1227,6 +1236,7 @@ DELPHES_OBJ +=  \
 	tmp/modules/DenseTrackFilter.$(ObjSuf) \
 	tmp/modules/DualReadoutCalorimeter.$(ObjSuf) \
 	tmp/modules/Efficiency.$(ObjSuf) \
+	tmp/modules/MetaStableCharged.$(ObjSuf) \
 	tmp/modules/EnergyScale.$(ObjSuf) \
 	tmp/modules/EnergySmearing.$(ObjSuf) \
 	tmp/modules/ExampleModule.$(ObjSuf) \
@@ -2052,6 +2062,9 @@ modules/UnstablePropagator.h: \
 	classes/DelphesModule.h
 	@touch $@
 modules/Efficiency.h: \
+	classes/DelphesModule.h
+	@touch $@
+modules/MetaStableCharged.h: \
 	classes/DelphesModule.h
 	@touch $@
 external/fastjet/tools/GridMedianBackgroundEstimator.hh: \
