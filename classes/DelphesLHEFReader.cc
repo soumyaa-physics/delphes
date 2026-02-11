@@ -298,9 +298,9 @@ void DelphesLHEFReader::AnalyzeParticle(DelphesFactory *factory,
   candidate->D2 = -1;
 
   allParticleOutputArray->Add(candidate);
-
+  cout << "PID: " << pdgCode << ", status: " << candidate->Status << endl;
   if(!pdgParticle) return;
-
+  cout << "PID: " << pdgCode<< ", charge: " << candidate->Charge << endl;
   if(fStatus == 1)
   {
     stableParticleOutputArray->Add(candidate);
@@ -308,6 +308,14 @@ void DelphesLHEFReader::AnalyzeParticle(DelphesFactory *factory,
   else if(pdgCode <= 5 || pdgCode == 21 || pdgCode == 15)
   {
     partonOutputArray->Add(candidate);
+  }
+
+  // for charged LLP
+  else if(pdgCode == 1000015) // stau
+  {
+      candidate->Status = 1;      
+      stableParticleOutputArray->Add(candidate);
+      cout << "stau is treated as a stable particle" << endl;
   }
 }
 

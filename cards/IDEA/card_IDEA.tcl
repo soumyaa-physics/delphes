@@ -447,7 +447,7 @@ module TimeOfFlight TimeOfFlight {
   # 1: assume vertex time tV = 0
   # 2: calculate vertex time as vertex TOF, assuming tPV=0
 
-  set VertexTimeMode 0
+  set VertexTimeMode 2
 }
 
 ##############
