@@ -133,7 +133,8 @@ module MetaStableCharged MetaStableCharged {
   set OutputArray metaStableCharged
 
   # minimal travel distance, in meters
-  set MinTravel 0.5
+  # 5 cm - there will be a later hit-based filter on top
+  set MinTravel 0.05   
 
 }
 
