@@ -91,7 +91,6 @@ void MetaStableCharged::Process()
 {
   Candidate *candidate;
 
-  std::cout << " ===================== " << std::endl;
   fItInputArray->Reset();
   while((candidate = static_cast<Candidate *>(fItInputArray->Next())))
   {
@@ -101,7 +100,6 @@ void MetaStableCharged::Process()
     if (candidate->Status == 1) continue;
     // cut on travel distance - using stored decay Length L 
     if ( candidate->L >= fMinTravel*1e3 ){    
-        std::cout << " Found a "<<candidate->PID<<" with status "<<candidate->Status<<" and stored L " <<candidate->L<<std::endl;
       fOutputArray->Add(candidate);
     }
   } 
