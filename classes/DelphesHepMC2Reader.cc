@@ -114,6 +114,7 @@ bool DelphesHepMC2Reader::ReadBlock(DelphesFactory *factory,
   char key, momentumUnit[4], positionUnit[3];
   int i, rc, state;
   double weight;
+
   if(!fgets(fBuffer, kBufferSize, fInputFile)) return kFALSE;
 
   DelphesStream bufferStream(fBuffer + 1);
@@ -374,21 +375,17 @@ void DelphesHepMC2Reader::AnalyzeParticle(DelphesFactory *factory,
   Candidate *candidate;
   TParticlePDG *pdgParticle;
   int pdgCode;
-  // cout << "RUNNING HEPMC2 READER" << endl;
-  // int * myInt = nullptr;
-
 
   candidate = factory->NewCandidate();
 
   candidate->PID = fPID;
   pdgCode = TMath::Abs(candidate->PID);
-  // pdgCode += *myInt;
+
   candidate->Status = fStatus;
 
   pdgParticle = fPDG->GetParticle(fPID);
   candidate->Charge = pdgParticle ? int(pdgParticle->Charge() / 3.0) : -999;
   candidate->Mass = fMass;
-  // cout << "PID: " << pdgCode << ", status: " << candidate->Status << endl;
 
   candidate->Momentum.SetPxPyPzE(fPx, fPy, fPz, fE);
   if(fMomentumCoefficient != 1.0)
@@ -424,7 +421,6 @@ void DelphesHepMC2Reader::AnalyzeParticle(DelphesFactory *factory,
   allParticleOutputArray->Add(candidate);
 
   if(!pdgParticle) return;
-  // cout << "PID: " << pdgCode<< ", charge: " << candidate->Charge << endl;
 
   if(fStatus == 1)
   {
@@ -434,8 +430,6 @@ void DelphesHepMC2Reader::AnalyzeParticle(DelphesFactory *factory,
   {
     partonOutputArray->Add(candidate);
   }
- 
-
 }
 
 //---------------------------------------------------------------------------

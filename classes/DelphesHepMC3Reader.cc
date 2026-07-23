@@ -432,7 +432,7 @@ void DelphesHepMC3Reader::AnalyzeVertex(DelphesFactory *factory, int code, Candi
 void DelphesHepMC3Reader::AnalyzeParticle(DelphesFactory *factory)
 {
   Candidate *candidate;
-  cout << "RUNNING HEPMC3 READER" << endl;
+
   candidate = factory->NewCandidate();
 
   candidate->PID = fPID;
@@ -465,7 +465,6 @@ void DelphesHepMC3Reader::FinalizeParticles(TObjArray *allParticleOutputArray,
   map<int, pair<int, int> >::iterator itDaughterMap;
   size_t i;
   int j, code, counter;
-  cout << "PID: " << pdgCode << ", status: " << candidate->Status << endl;
 
   counter = 0;
   for(i = 0; i < fVertices.size(); ++i)

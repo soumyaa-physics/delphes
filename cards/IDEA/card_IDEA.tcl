@@ -134,7 +134,7 @@ module MetaStableCharged MetaStableCharged {
 
   # minimal travel distance, in meters
   # 5 cm - there will be a later hit-based filter on top
-  set MinTravel 0.05   
+  set MinTravel 0.030 
 
 }
 
@@ -624,7 +624,7 @@ module TimeOfFlight TimeOfFlightNeutralHadron {
   # 2: calculate vertex time as vertex TOF, assuming tPV=0
 
   ## TBF (add option to take hard vertex time)
-  set VertexTimeMode 1
+  set VertexTimeMode 2
 }
 
 

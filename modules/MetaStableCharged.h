@@ -25,7 +25,7 @@
  *  meta-stable charged particle (status != 1) travelling beyond 
  *  a certain cylinder (assumed to collect min Nhits for tracking) 
  *
- *  \author S.Vashishta, M.Goblirsch-Kolb - DESY
+ *  \author S.Vashishtha, M.Goblirsch-Kolb - DESY
  *
  */
 

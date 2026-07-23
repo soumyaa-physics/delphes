@@ -33,7 +33,7 @@ Run the following code to combine delphes output with EDM4HEP:
 ```
 DelphesHepMC_EDM4HEP  /eos/user/s/svashish/delphes/cards/IDEA/card_IDEA.tcl \
                       /eos/user/s/svashish/delphes/cards/IDEA/edm4hep_IDEA.tcl \
-                      /eos/user/s/svashish/FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output/FCCee_110_stau_1p5m_ctau_ecm_240.root \
+                      /eos/user/s/svashish/FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output/FCCee_110_stau_1p5m_ctau_ecm_240_delphes_nhits.root \
                       /eos/user/s/svashish/MG5_aMC_v3_6_6/FCCee_110_stau_1p5m_ctau_ecm_240/Events/run_03/tag_1_pythia8_events.hepmc
 ```
 
@@ -42,8 +42,18 @@ This script is placed in : ` k4SimDelphes/standalone/src/DelphesHepMC_EDM4HEP.cp
 
 DelphesHepMC_EDM4HEP  /eos/user/s/svashish/delphes/cards/IDEA/card_IDEA.tcl \
                       /eos/user/s/svashish/delphes/cards/IDEA/edm4hep_IDEA.tcl \
-                      /eos/user/s/svashish/FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output/FCCee_110_stau_3m_ctau_ecm_240_changed_delphes.root \
+                      /eos/user/s/svashish/FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output/FCCee_110_stau_3m_ctau_ecm_240_changed_delphes_test.root \
+                      /eos/user/s/svashish/MG5_aMC_v3_6_6/FCCee_110_stau_3m_ctau_ecm_240/Events/run_01/tag_1_pythia8_events.hepmc
+
+DelphesHepMC_EDM4HEP  /eos/user/s/svashish/delphes/cards/IDEA/card_IDEA.tcl \
+                      /eos/user/s/svashish/delphes/cards/IDEA/edm4hep_IDEA.tcl \
+                      /eos/user/s/svashish/FCCAnalyses/examples/FCCee/bsm/LLPs/Stau/edm4hep_output/FCCee_110_stau_3m_ctau_ecm_240.root \
                       /eos/user/s/svashish/MG5_aMC_v3_6_6/FCCee_110_stau_3m_ctau_ecm_240/Events/run_01/tag_1_pythia8_events.hepmc
 
 
 // to check if it uses the correct delphes
+
+changes to delphes: make clean
+make -j8
+
+go to k4simdelphes -> source key4hep -> run clean_build.sh -> source ~/delphes_run.sh
