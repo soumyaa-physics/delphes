@@ -8,7 +8,6 @@
 #include "TrkUtil.h"
 #include "ObsTrk.h"
 #include <vector>
-#include <map>
 #include <iostream>
 //
 // Class for vertex fitting
@@ -30,8 +29,8 @@ private:
 	std::vector<TMatrixDSym*> fCovNew;	// Updated parameter covariances
 	std::vector<Bool_t>fCharged;		// Charge tag
 	// Constraints
-	Bool_t fVtxCst;					// Vertex constraint flag
-	TVectorD fxCst;					// Constraint value
+	Bool_t fVtxCst;				// Vertex constraint flag
+	TVectorD fxCst;				// Constraint value
 	TMatrixDSym fCovCst;			// Constraint 
 	TMatrixDSym fCovCstInv;			// Inverse of constraint covariance
 	//
@@ -53,9 +52,6 @@ private:
 	std::vector<TMatrixDSym*> fDi;			// W-WBW
 	std::vector<TMatrixDSym*> fWi;			// (ACA')^-1
 	std::vector<TMatrixDSym*> fWinvi;		// ACA'
-
-	std::map<std::pair<int,int>, TMatrixD> fCacheDaiDa0k;
-	std::map<std::pair<int,int>, TMatrixD> fCacheNewCov;
 	//
 	// Service routines
 	void ResetWrkArrays();				// Clear work arrays
@@ -85,11 +81,13 @@ public:
 	Double_t GetVtxChi2();
 	TVectorD GetVtxChi2List();
 	TVectorD GetNewPar(Int_t i) { return *fParNew[i]; };		// Updated track parameters
-	const TMatrixD & GetNewCov(Int_t i, Int_t j);	// Updated parameter covariances cross terms <PAR_I*PAR_J>
+	TMatrixD GetNewCov(Int_t i, Int_t j);	// Updated parameter covariances cross terms <PAR_I*PAR_J>
 	TMatrixD GetNewCovXvPar(Int_t i);	// Updated parameter covariances cross terms with vertex <X*PAR>
 	TMatrixDSym GetNewCov(Int_t i);		// Updated parameter covariance <par_i*par_i>
-	TMatrixD GetDxvDpar0(Int_t i) ;		// dXv/dStartPar(i)
-	const TMatrixD & DaiDa0k(Int_t i, Int_t k);				// Derivative of final track parameters wrt initial
+	Double_t GetPhase(Int_t i) { return ffi[i]; };
+	TMatrixD GetDxvDpar0(Int_t i) ;		// X_i = dXv/dStartPar(i)
+	TMatrixD DaiDa0k(Int_t i, Int_t k);	// M^i_k: Derivative of final track parameters wrt initial
+	TVectorD DsiDa0k(Int_t i, Int_t k);	// S^i_k: Derivative of phase wrt initial track parameters
 	//
 	// Handle tracks/constraints
 	void AddVtxConstraint(TVectorD xv, TMatrixDSym cov);	// Add gaussian vertex constraint
